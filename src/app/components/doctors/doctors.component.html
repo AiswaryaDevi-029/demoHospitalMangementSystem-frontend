@@ -1,0 +1,101 @@
+<div class="row g-4">
+  <div class="col-md-5">
+    <div class="card p-4">
+      
+      <form (ngSubmit)="addDoctor()" *ngIf="!editingDoctor">
+        <h2 class="text-center">Add New Doctor</h2>
+        <div class="mb-3">
+          <label for="doctorName" class="form-label">Name *</label>
+          <input
+            id="doctorName"
+            type="text"
+            class="form-control"
+            [(ngModel)]="newDoctor.name"
+            name="name"
+            required />
+        </div>
+
+        <div class="mb-3">
+          <label for="doctorSpecialization" class="form-label">Specialization *</label>
+          <input
+            id="doctorSpecialization"
+            type="text"
+            class="form-control"
+            [(ngModel)]="newDoctor.specialization"
+            name="specialization"
+            required />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Availability *</label>
+          <div class="form-check">
+           <input
+              class="form-check-input"
+              type="radio"
+              name="availability"
+              id="doctorAvailableYes"
+              value="Yes"    
+              [(ngModel)]="newDoctor.availability"
+              required>
+            <label class="form-check-label" for="doctorAvailableYes">Yes</label>
+         </div>
+
+         <div class="form-check">
+            <input
+               class="form-check-input"
+               type="radio"
+               name="availability"
+               id="doctorAvailableNo"
+               value="No"
+               [(ngModel)]="newDoctor.availability"
+               required>
+           <label class="form-check-label" for="doctorAvailableNo">No</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Add</button>
+      </form>
+
+      <div *ngIf="editingDoctor">
+        <h2>Edit Doctor</h2>
+        <input type="text" [(ngModel)]="editingDoctor.name" class="form-control mb-2" placeholder="Name" />
+        <input type="text" [(ngModel)]="editingDoctor.specialization" class="form-control mb-2" placeholder="Specialization" />
+        
+        <div class="mb-3">
+          <label class="form-label">Availability *</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="editAvailability"
+                   id="editAvailableYes" value="Yes" [(ngModel)]="editingDoctor.availability">
+            <label class="form-check-label" for="editAvailableYes">Yes</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="editAvailability"
+                   id="editAvailableNo" value="No" [(ngModel)]="editingDoctor.availability">
+            <label class="form-check-label" for="editAvailableNo">No</label>
+          </div>
+        </div>
+
+        <button class="btn btn-primary me-2" (click)="updateDoctor()">Update</button>
+        <button class="btn btn-secondary" (click)="editingDoctor = null">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-7">
+    <h3 class="text-center">Doctors ({{ doctors.length }})</h3>
+    <div *ngFor="let d of doctors" class="card p-3 mb-3 d-flex flex-row justify-content-between align-items-center">
+      <div>
+        <p class="fw-semibold mb-1">Name: Dr. {{ d.name }}</p>
+        <p class="text-muted mb-0">{{ d.specialization }}</p>
+      </div>
+      <div class="mt-2 d-flex">
+        <button class="btn btn-warning btn-sm me-2" (click)="editDoctor(d)">Edit</button>
+        <button class="btn btn-danger btn-sm" (click)="deleteDoctor(d._id)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br><br><br><br><br>
+<div class="text-center">
+<h1> Demo Hospital Management System</h1>
+</div>

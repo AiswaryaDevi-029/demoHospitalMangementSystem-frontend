@@ -1,0 +1,76 @@
+.row {
+  display: flex;
+  justify-content: center; 
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px; 
+  margin-top: 20px;
+}
+.col-md-5,
+.col-md-7 {
+  flex: 0 0 40%; 
+  max-width: 500px;
+}
+.card {
+  border-radius: 12px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 20px;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+h1{
+  text-align: right;
+  padding-right: 10px;
+  padding-bottom: 0%;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 700;
+  color: white;
+  
+}
+
+h2 {
+  text-align: center;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 600;
+  color: #01118f;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+h3{
+  text-align: center;
+  font-weight: 600;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.form-control,
+.form-select {
+  border-radius: 8px;
+  padding: 10px;
+}
+.form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+button { border-radius: 8px; font-weight: 600; padding: 10px; }
+.btn-primary { background: #0057b7; border: none; }
+.btn-primary:hover { background: #003f82; }
+.btn-warning {  color : white;background:#075bb5; border: none; }
+.btn-warning:hover { background: #003f82; }
+.btn-danger { background: #cc0000; border: none; }
+.btn-danger:hover { background: #a30000; }
+.btn-secondary { background: #6c757d; border: none; }
+.btn-secondary:hover { background: #545b62; }
+
+

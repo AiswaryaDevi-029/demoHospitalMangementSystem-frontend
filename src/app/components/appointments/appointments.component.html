@@ -1,0 +1,109 @@
+<div class="row g-4">
+  <div class="col-md-5">
+    <div class="card p-4">
+      <form (ngSubmit)="editingAppointment ? updateAppointment() : addAppointment()">
+        <h2 class="text-center">{{ editingAppointment ? 'Edit Appointment' : 'Book a New Appointment' }}</h2>
+
+        
+        <div class="mb-3">
+          <label for="patientSelect"  class="form-label">Patient *</label>
+          <select 
+                  id="patientSelect"
+                  class="form-select"
+                  [(ngModel)]="newAppointment.patientId"
+                  name="patientId"
+                  required>
+            <option value="">Select</option>
+            <option *ngFor="let p of patients" [value]="p._id">
+              {{ p.name }} | Age: {{ p.age }} | {{ p.gender }} | {{ p.phoneNumber }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="doctorSelect" class="form-label">Doctor *</label>
+          <select 
+                  id="doctorSelect"
+                  class="form-select"
+                  [(ngModel)]="newAppointment.doctorId"
+                  name="doctorId"
+                  required
+                  (change)="updateAvailableSlots()">
+            <option value="">Select</option>
+            <option *ngFor="let d of doctors" [value]="d._id">
+              {{ d.name }} | {{ d.specialization }}
+            </option>
+          </select>
+        </div>
+
+     
+        <div class="mb-3">
+          <label for="date" class="form-label">Date *</label>
+          <input 
+                 id="date"
+                 type="date"
+                 class="form-control"
+                 [(ngModel)]="newAppointment.date"
+                 name="date"
+                 [min]="minDate"
+                 required
+                 (change)="updateAvailableSlots()" />
+        </div>
+
+        <div class="mb-3">
+          <label for="time" class="form-label">Time *</label>
+          <select 
+                  id="time"
+                  class="form-select"
+                  [(ngModel)]="newAppointment.time"
+                  name="time"
+                  required>
+            <option value="">Select Time</option>
+            <option *ngFor="let slot of availableSlots" [value]="slot">
+              {{ slot }}
+            </option>
+          </select>
+          <small *ngIf="availableSlots.length === 0 && newAppointment.date && newAppointment.doctorId"
+                 class="text-danger">
+            No available time slots for this doctor on the selected date.
+          </small>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">
+          {{ editingAppointment ? 'Update' : 'Add ' }}
+        </button>
+
+        <button *ngIf="editingAppointment"
+                type="button"
+                class="btn btn-secondary w-100 mt-2"
+                (click)="cancelEdit()">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-md-7">
+    <h3>Active Appointments ({{ appointments.length }})</h3>
+
+    <div *ngFor="let a of appointments" class="card p-3 mb-3">
+      <p class="fw-semibold mb-1">
+        Patient: {{ a.patientId?.name }} | Age: {{ a.patientId?.age }} | Phone: {{ a.patientId?.phoneNumber }}
+      </p>
+      <p class="mb-1">
+        Doctor: Dr. {{ a.doctorId?.name }} | {{ a.doctorId?.specialization }}
+      </p>
+      <p class="text-muted mb-0">
+        On {{ a.dateTime | date:'mediumDate' }} at {{ a.dateTime | date:'hh:mm a' }}
+      </p>
+
+      <div class="mt-2 d-flex">
+        <button class="btn btn-primary btn-sm me-2" (click)="editAppointment(a)">Edit</button>
+        <button class="btn btn-danger btn-sm" (click)="deleteAppointment(a._id)">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br><br><br>
+<div class="text-center">
+<h1>Demo Hospital Management System</h1>
+</div>

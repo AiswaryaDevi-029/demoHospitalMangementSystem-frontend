@@ -1,0 +1,111 @@
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.col-md-5,
+.col-md-7 {
+  flex: 0 0 45%;
+  max-width: 550px;
+}
+
+
+.card {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  transition: all .2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+h1{
+  text-align: right;
+  padding-right: 10px;
+  padding-bottom: 0%;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 700;
+  color: white;
+  
+}
+
+
+h2 {
+  text-align: center;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 600;
+  color: #01118f;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+h3{
+  text-align: center;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+
+.form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.form-control,
+.form-select {
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  transition: .3s;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #0057b7;
+  box-shadow: 0 0 6px rgba(0, 87, 183, 0.35);
+  background: #fff;
+}
+
+
+ button { border-radius: 8px; font-weight: 600; padding: 10px; }
+.btn-primary { background: #0057b7; border: none; }
+.btn-primary:hover { background: #003f82; }
+.btn-warning {  color : white;background:#003f82; border: none; }
+.btn-warning:hover { background: #003f82; }
+.btn-danger { background: #cc0000; border: none; }
+.btn-danger:hover { background: #a30000; }
+.btn-secondary { background: #6c757d; border: none; }
+.btn-secondary:hover { background: #545b62; }
+
+
+
+.snackbar-success {
+  background-color: #28a745 !important;
+  color: #fff !important;
+  font-weight: bold;
+}
+
+
+@media (max-width: 992px) {
+  .col-md-5, .col-md-7 { flex: 0 0 90%; max-width: 90%; }
+}
+@media (max-width: 576px) {
+  .card { padding: 16px; }
+  h4, h5 { font-size: 1.2rem; }
+  button { font-size: .9rem; }
+}
+
