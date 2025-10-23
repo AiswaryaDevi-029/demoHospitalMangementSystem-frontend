@@ -1,8 +1,7 @@
 <div class="row g-4">
   <div class="col-md-5">
     <div class="card p-4">
-      
-      <form (ngSubmit)="addDoctor()" *ngIf="!editingDoctor">
+      <form (ngSubmit)="addDoctor()" #doctorForm="ngForm" *ngIf="!editingDoctor">
         <h2 class="text-center">Add New Doctor</h2>
         <div class="mb-3">
           <label for="doctorName" class="form-label">Name *</label>
