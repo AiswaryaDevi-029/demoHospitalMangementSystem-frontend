@@ -1,7 +1,8 @@
 <div class="row g-4">
   <div class="col-md-5">
     <div class="card p-4">
-      <form (ngSubmit)="editingAppointment ? updateAppointment() : addAppointment()" #appointmentForm="ngForm">
+      <form (ngSubmit)="editingAppointment ? updateAppointment() : addAppointment()">
+        
         <h2 class="text-center">{{ editingAppointment ? 'Edit Appointment' : 'Book a New Appointment' }}</h2>
 
         
