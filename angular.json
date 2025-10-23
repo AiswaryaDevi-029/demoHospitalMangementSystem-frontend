@@ -52,11 +52,11 @@
     "optimization": true,
   "outputHashing": "all",
   "sourceMap": false,
-  "aot": true,
+  "aot": true
  
               
               
-              "outputHashing": "all"
+           
             },
             
             "development": {
