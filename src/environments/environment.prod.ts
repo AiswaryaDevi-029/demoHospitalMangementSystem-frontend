@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://demohospitalmanagementsystem-backend.onrender.com'
+  apiUrl: 'https://demohospitalmangementsystem-backend.onrender.com/api'
 };
